@@ -1,6 +1,6 @@
 ts@aerynos:~/Pobrane
 
-$ moss index .
+>>$ moss index .
 
 Indexing 1 files
 
@@ -10,19 +10,19 @@ Index file written to "/home/ts/Pobrane/stone.index"
 
 ts@aerynos:~/Pobrane
 
-$ sudo moss repo add local-custom file:///home/ts/Pobrane/stone.index
+>>$ sudo moss repo add local-custom file:///home/ts/Pobrane/stone.index
 
 local-custom added
 
 ts@aerynos:~/Pobrane
 
-$ sudo moss sync
+>>$ sudo moss sync
 
 No packages to sync
 
 ts@aerynos:~/Pobrane
 
-$ sudo moss install nouveau-firmware-custom
+>>$ sudo moss install nouveau-firmware-custom
 
 The following package(s) will be installed:
 
