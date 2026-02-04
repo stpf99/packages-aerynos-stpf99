@@ -1,0 +1,24 @@
+name: nouveau-firmware-custom
+version: 1.0.0
+release: 8
+summary: Lokalne pliki firmware dla nouveau (z GitHub)
+license: Proprietary
+homepage: https://github.com/stpf99/fw-legacy-325-nouveau
+networking: yes
+upstreams:
+    - https://github.com/stpf99/fw-legacy-325-nouveau/archive/refs/heads/main.tar.gz: cd241684a889efb33b98905f36b37642bc5183b2905132275710cee064051d29
+install: |
+    # Tworzymy katalog docelowy w /usr/lib/firmware (gdzie kernel szuka)
+    mkdir -p %(installroot)/usr/lib/firmware/nouveau
+    
+    # Kopiujemy wszystkie pliki firmware
+    for file in *; do
+        if [ -f "$file" ]; then
+            echo "Kopiuję: $file"
+            cp -v "$file" %(installroot)/usr/lib/firmware/nouveau/
+        fi
+    done
+    
+    # Sprawdźmy co zostało skopiowane
+    echo "=== Zainstalowane pliki ==="
+    ls -lh %(installroot)/usr/lib/firmware/nouveau/
